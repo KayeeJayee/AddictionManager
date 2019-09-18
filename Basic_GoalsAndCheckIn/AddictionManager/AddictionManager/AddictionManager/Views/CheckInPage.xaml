@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AddictionManager.Views.CheckInPage">
+    <ContentPage.ToolbarItems>
+            <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+        </ContentPage.ToolbarItems>
+    <StackLayout Spacing="20" Padding="15">
+        <Label FontSize="Large" Text="{Binding GoalName}"/>
+        <Label x:Name="GoalStreak" FontSize="Medium" Text="{Binding GoalStreak}"/>
+        <Button Text="YES" Clicked="Yes_Clicked" BackgroundColor="Green" />
+        <Button Text="NO" Clicked="No_Clicked" BackgroundColor="Red" />
+    </StackLayout>
+</ContentPage>
