@@ -8,18 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$regName = htmlspecialchars(trim($_POST["regName"]),FILTER_SANITIZE_EMAIL);
 	$regPassword = htmlspecialchars(trim($_POST["regPassword"]),FILTER_SANITIZE_EMAIL);
 
-	// ---HONEYPOT VALIDATION---
-	// if ($_POST["candy"] != "") {
-	// 	echo "There was a problem with the information you entered.";
-	//     exit;
-	// }
-
-	// ---VALIDATION---
-	// if (empty($regUsername)) $feedback['username'] = "All fields are required.";
-	// if (empty($regPassword)) $feedback['password'] = "All fields are required.";
-	// if (empty($confirm)) 	 $feedback['confirm'] = "All fields are required.";
-	// if ($regPassword != $confirm) $feedback['confirm'] = "Your passwords didn't match.";
-
 	// ---CHECK FOR EXISTING USER---
 	try{
 		$user_results = mysqli_query($conn, "SELECT * FROM users WHERE username = '" .$regName. "'");

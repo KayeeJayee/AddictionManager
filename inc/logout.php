@@ -11,6 +11,7 @@ try{
 	echo $e->getMessage();
 	exit;
 }
+$user_logged_in = false;
 mysqli_close($conn);
 unset($_SESSION['user_id']);
 session_destroy();

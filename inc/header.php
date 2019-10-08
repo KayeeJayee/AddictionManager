@@ -9,7 +9,7 @@
 <body>
 
 <header>
-	<h1>Addiction Manager</h1>
+	<h1><a href="index.php">Addiction Manager</a></h1>
 	<?php if (isset($_SESSION['username'])) { ?>
 		<p>Welcome, <?php echo $_SESSION['username']; ?>! <a href="inc/logout.php">Log out</a></p>
 	<?php } else { ?>

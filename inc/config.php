@@ -1,6 +1,8 @@
 <?php 
-session_start();
-$user_logged_in = true; // HERE
+if(!isset($_SESSION)){
+    session_start();
+}
+$user_logged_in = false;
 try{
 	$conn = mysqli_connect("localhost", "username", "password", "addiction_manager");
 } catch(Exception $e) {
@@ -10,7 +12,7 @@ try{
 
 // LOG IN
 try{
-	$check_user = mysqli_query($conn,"SELECT * FROM users WHERE session_id = '".session_id()."'");
+	$check_user = mysqli_query($conn,"SELECT * FROM users WHERE session_id = '".session_id()."' LIMIT 1");
 	while ($row=mysqli_fetch_row($check_user)){
 				if(count($row) > 0) {
 					$user_logged_in = true;

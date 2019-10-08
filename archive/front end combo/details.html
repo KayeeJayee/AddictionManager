@@ -1,16 +1,3 @@
-<?php
-// details
-if(isset($_GET['id'])){
-  $id = $_GET['id'];
-  include 'inc/config.php';
-  $addiction = mysqli_query($conn, "SELECT * FROM addiction WHERE id ='".$id."'");
-  $row = mysqli_fetch_assoc($addiction);
-  $calcMilestone = (int)$row['streak_goal'] - (int)$row['streak_achieved'];
-}else{
-  header("Location: index.php");
-  exit;
-}
-?>
 <!-- header -->
 <!DOCTYPE html>
 <html>
@@ -22,7 +9,7 @@ if(isset($_GET['id'])){
 
 <div id="textbox">
 <a href="#" onclick="history.back()"><img class="alignright" src="img/back.jpg" height="35px" width="35px"></a>
-<h1 class="aligncenter"><?php echo $row['name']?></h1>
+<h1 class="aligncenter">Alcohol</h1>
 <a href="#" ><img class="alignleft" src="img/home3.jpg" height="35px" width="35px"></a>
 </div>
 
@@ -31,33 +18,30 @@ if(isset($_GET['id'])){
   <div class="column" >
     <div class="card" id="four">
     	<h2>Money Saved</h2>
-    	<p><?php echo $row['money_achieved']?></p>
+    	<p>$50</p>
     </div>
   </div>
 
   <div class="column">
     <div class="card" id="one" >
     	<h2>Time Saved</h2>
-    	<p>calcuation here</p>
+    	<p>2 Hrs</p>
     </div>
   </div>
   
   <div class="column">
     <div class="card" id="two">
     	<h2>Days to next milestone</h2>
-    	<p><?php echo $calcMilestone; ?></p>
+    	<p>29 Days</p>
     </div>
   </div>
   
   <!-- form to add pledge -->
   <div class="column">
     <div class="card" id="three">
-    	<h2>Pledges</h2>  
-      <form method="post" action="inc/pledge.php">
-        <input type="hidden" name="a_id" value="<?php echo $row['id'] ?>">
-        <textarea placeholder="  type here" name="pledge"></textarea> 
-        <button id="Save" type="submit">Save</button>
-      </form> 
+    	<h2>Pledges</h2>   
+      <textarea placeholder="  type here"></textarea> 
+      <a href="#"><button id="Save">Save</button></a>  
     </div>
   </div>
 </div>

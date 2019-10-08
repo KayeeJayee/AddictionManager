@@ -1,7 +1,7 @@
 
 </main>
 <footer>
-	<p>&copy; <?php echo date("Y")?> Addiction Manager team, SDP class of S2 2019.</p>
+	<p>&copy; <?php echo date("Y")?>. Created with love from students of AUT</p>
 </footer>
 </body>
 </html>
