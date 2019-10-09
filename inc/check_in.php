@@ -18,7 +18,6 @@ if(isset($_GET['id']) && isset($_GET['check'])){
 		{ // lost streak
 			$streak = 0;
 		  $sql = "UPDATE addiction SET streak_achieved = '".$streak."' WHERE id ='".$id."'";
-		  //echo "You checked in too late, you have lost your streak"; exit;
 		}
 		else
 		{ // all good, update streak
