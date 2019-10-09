@@ -7,10 +7,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$date = date("Y-m-d");
 
 	$sql = "INSERT INTO addiction(
-						user_id, name, date_created, 
-						money_goal, money_achieved, 
-						streak_goal, streak_achieved) 
-		VALUES ('".$user_id."','".$addiction."','".$date."', 50, 0, 7, 1)";
+			user_id, name, date_created, 
+			money_goal, money_achieved, 
+			streak_goal, streak_achieved) 
+	VALUES ('".$user_id."','".$addiction."','".$date."', 50, 0, 7, 1)";
 	try{
 		mysqli_query($conn, $sql);
 		header("Location:../index.php");
@@ -19,7 +19,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		echo "problem inserting addiction ".$e->getMessage();
 		exit;
 	}
-}else{
+}
+else{
 	header("Location:../index.php");
 	exit;
 }
