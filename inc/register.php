@@ -22,11 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		echo $e->getMessage();
 		exit;
 	}
-	
-	// ---CONTINUE VALIDATION---
-	// if(count($user) === 1) { //counts the number of items in an array. if could find user, it equals one
-	// 	$feedback['username']= "That user already exists. Please choose another name.";
-	// }
 
 	// ---IF THERE ARE NO ISSUES, ADD THAT USER TO DATABASE---
 	
@@ -35,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				VALUES ('" .$regName. "', '" .$regPassword. "')";
 		try{
 			mysqli_query($conn, $insertQuery);
-			header('Location:../login.html');
+			header('Location:../login.php');
 			exit;
 			
 
