@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 08, 2019 at 03:59 AM
+-- Generation Time: Oct 22, 2019 at 03:55 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.7
 
@@ -33,6 +33,7 @@ CREATE TABLE `addiction` (
   `user_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `date_created` date NOT NULL,
+  `money_usually_spent` decimal(10,2) NOT NULL,
   `money_goal` decimal(10,2) NOT NULL,
   `money_achieved` decimal(10,2) NOT NULL,
   `streak_goal` int(11) NOT NULL,
@@ -44,15 +45,17 @@ CREATE TABLE `addiction` (
 -- Dumping data for table `addiction`
 --
 
-INSERT INTO `addiction` (`id`, `user_id`, `name`, `date_created`, `money_goal`, `money_achieved`, `streak_goal`, `streak_achieved`, `achieved_stamp`) VALUES
-(1, 1, 'alcohol', '2019-09-26', '50.00', '0.00', 7, 2, '2019-10-08 02:43:31'),
-(2, 1, 'smoking', '2019-09-26', '50.00', '0.00', 7, 4, '2019-10-08 02:43:31'),
-(5, 3, 'junk food', '2019-09-27', '50.00', '0.00', 7, 0, '2019-10-08 02:43:31'),
-(6, 1, 'junk food', '2019-10-07', '50.00', '0.00', 7, 0, '2019-10-08 02:43:31'),
-(7, 1, 'weed', '2019-10-08', '50.00', '0.00', 7, 1, '2019-10-08 02:43:31'),
-(8, 1, 'fsjksfdkj', '2019-10-08', '50.00', '0.00', 7, 0, '2019-10-08 02:43:31'),
-(9, 6, 'hihihi', '2019-10-08', '50.00', '0.00', 14, 7, '2019-10-08 03:33:11'),
-(10, 6, 'sdflkjdsfkj', '2019-10-08', '50.00', '0.00', 7, 1, '2019-10-08 02:48:38');
+INSERT INTO `addiction` (`id`, `user_id`, `name`, `date_created`, `money_usually_spent`, `money_goal`, `money_achieved`, `streak_goal`, `streak_achieved`, `achieved_stamp`) VALUES
+(1, 1, 'alcohol', '2019-09-26', '0.00', '50.00', '0.00', 7, 2, '2019-10-08 02:43:31'),
+(2, 1, 'smoking', '2019-09-26', '0.00', '50.00', '0.00', 7, 4, '2019-10-08 02:43:31'),
+(5, 3, 'junk food', '2019-09-27', '0.00', '50.00', '0.00', 7, 0, '2019-10-08 02:43:31'),
+(6, 1, 'junk food', '2019-10-07', '0.00', '50.00', '0.00', 7, 0, '2019-10-08 02:43:31'),
+(7, 1, 'weed', '2019-10-08', '0.00', '50.00', '0.00', 7, 1, '2019-10-08 02:43:31'),
+(8, 1, 'fsjksfdkj', '2019-10-08', '0.00', '50.00', '0.00', 7, 0, '2019-10-08 02:43:31'),
+(9, 6, 'hihihi', '2019-10-08', '0.00', '50.00', '0.00', 14, 7, '2019-10-08 03:33:11'),
+(10, 6, 'sdflkjdsfkj', '2019-10-08', '0.00', '50.00', '0.00', 7, 1, '2019-10-08 02:48:38'),
+(12, 3, 'smoking', '2019-10-22', '0.00', '50.00', '0.00', 7, 2, '2019-10-22 03:13:47'),
+(13, 3, 'weed', '2019-10-22', '25.00', '50.00', '50.00', 7, 3, '2019-10-22 03:31:37');
 
 -- --------------------------------------------------------
 
@@ -76,7 +79,8 @@ INSERT INTO `pledges` (`id`, `a_id`, `pledge`) VALUES
 (7, 1, 'fsdjfsdkjdsfkj'),
 (8, 6, 'kjlfsdjklfdsjkldsf'),
 (9, 9, 'fsdjkdfskjdsfkjdfskjdfskjfdsjk'),
-(10, 9, 'actual data to check');
+(10, 9, 'actual data to check'),
+(11, 13, 'bleh');
 
 -- --------------------------------------------------------
 
@@ -120,10 +124,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `session_id`) VALUES
 (1, 'KJ', '123', NULL),
-(3, 'hihi', 'hihi', '676c737c880410027e08df4264a9bfa9'),
+(3, 'hihi', 'hihi', '6d5b688bd63d9c83a89d367de714c96b'),
 (4, 'bleh', '123', NULL),
 (5, 'muk', 'muk', NULL),
-(6, 'test', 'test', '85bd2bf471e79a29399c3310f2a243db');
+(6, 'test', 'test', '85bd2bf471e79a29399c3310f2a243db'),
+(7, 'new acc', '123', 'acdefac3ad06f93e60c303155e0f6d4c');
 
 --
 -- Indexes for dumped tables
@@ -164,13 +169,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `addiction`
 --
 ALTER TABLE `addiction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pledges`
 --
 ALTER TABLE `pledges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `suggestions`
@@ -182,7 +187,7 @@ ALTER TABLE `suggestions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
