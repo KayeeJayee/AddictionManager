@@ -1,11 +1,13 @@
 <?php
 // details
+
 if(isset($_GET['id'])){
   $id = $_GET['id'];
   include 'inc/config.php';
   $addiction = mysqli_query($conn, "SELECT * FROM addiction WHERE id ='".$id."'");
   $row = mysqli_fetch_assoc($addiction);
   $calcMilestone = (int)$row['streak_goal'] - (int)$row['streak_achieved'];
+  include 'inc/suggestions.php'; //for kj to check
 }else{
   header("Location: index.php");
   exit;
@@ -25,6 +27,8 @@ if(isset($_GET['id'])){
 <h1 class="aligncenter"><?php echo $row['name']?></h1>
 <a href="#" ><img class="alignleft" src="img/home3.jpg" height="35px" width="35px"></a>
 </div>
+
+<?php echo "<center><h3>$row['sugg']</h3></center>";?> //for kj to check
 
 <!-- details -->
 <div class="row">
