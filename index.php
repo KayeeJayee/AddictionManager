@@ -1,5 +1,5 @@
 <?php 
-include 'inc/config.php';
+include_once 'inc/config.php';
 ?>
 <!-- header -->
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ include 'inc/config.php';
         </div>
     </div>
     <?php }else{
-      echo "<a href='login.html'>You must be logged in to add addictions.</a>";
+      echo "<a href='login.php'>You must be logged in to add addictions.</a>";
     } ?>
 <!-- retrieve addictions -->
 <div class="column">
