@@ -13,25 +13,36 @@ include_once 'inc/config.php';
 <div id="textbox">
 <a href="#" onclick="history.back()"><img class="alignright" src="img/back.jpg" height="35px" width="35px"></a>
 <h1 class="aligncenter">Addiction Manager</h1>
-<a href="#" ><img class="alignleft" src="img/home3.jpg" height="35px" width="35px"></a>
+  <span class="alignleft">
+    <?php if (isset($_SESSION['username'])) { ?>
+      <span class="">Welcome, <?php echo $_SESSION['username']; ?>! <a href="inc/logout.php">Log out</a></span>
+    <?php } else { ?>
+      <span class=""><a href="login.php">Log in</a></span>
+    <?php } ?>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="index.php" ><img class="" src="img/home3.jpg" height="35px" width="35px"></a>
+  </span>
+
 </div>
 
  <div class="row">
 <!-- add addiction -->
-  <?php if($user_logged_in){ ?>
+ 
     <div class="column" >
       <div class="card" id="one">
-        <form method="post" action="inc/add_addiction.php">
-          <h2>Add Addiction</h2>
-          <input type="text" name="addiction" placeholder="Add an addiction">
-          <input type="text" name="money" placeholder="$$ you would spend per day">
-          <button type="submit"><img src="img/add1.jpg" alt="add button" height="45px" width="45px"></button>
-        </form>
-        </div>
-    </div>
-    <?php }else{
+         <?php if($user_logged_in){ ?>
+            <form method="post" action="inc/add_addiction.php">
+              <h2>Add Addiction</h2>
+              <input type="text" name="addiction" placeholder="Add an addiction">
+              <input type="text" name="money" placeholder="$$ you would spend per day">
+              <input type="text" name="hours" placeholder="Hours you used to spend">
+              <button type="submit" style="border:none; background: none;"><img src="img/add1.jpg" alt="add button" height="45px" width="45px"></button>
+            </form>
+         <?php }else{
       echo "<a href='login.php'>You must be logged in to add addictions.</a>";
     } ?>
+        </div>
+    </div>
+   
 <!-- retrieve addictions -->
 <div class="column">
     <div class="card" id="two" >
@@ -51,7 +62,9 @@ include_once 'inc/config.php';
               echo "When you enter addictions, you can track them here.";
           }
           mysqli_close($conn);
-        }
+        }else {
+              echo "When you enter addictions, you can track them here.";
+          }
         ?>
     </div>
   </div>

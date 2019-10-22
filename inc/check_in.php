@@ -9,9 +9,9 @@ if(isset($_GET['id']) && isset($_GET['check'])){
 	$row = mysqli_fetch_assoc($addiction);
 	$achieved = $_GET['check'] == "y" ? true : false;
 	$streak = (int)$row['streak_achieved']; 
-	$usually_spent = (int)$row['money_usually_spent']; 
-	$money_achieved = (int)$row['money_achieved']; 
-	$saved = $usually_spent + $money_achieved;
+	$saved = (int)$row['money_usually_spent'] + (int)$row['money_achieved'];
+	$hours_saved = (int)$row['hours_usually_spent'] + (int)$row['hours_saved'];
+	
 	// check if achieved
 	if($achieved){
 		// check if checked-in on time
@@ -20,12 +20,16 @@ if(isset($_GET['id']) && isset($_GET['check'])){
 		if ($day > 0)
 		{ // lost streak
 			$streak = 0;
-		  $sql = "UPDATE addiction SET streak_achieved = '".$streak."', money_achieved = ".$saved." WHERE id ='".$id."'";
+		  	$sql = "UPDATE addiction SET streak_achieved = '".$streak."' WHERE id ='".$id."'";
 		}
 		else
 		{ // all good, update streak
 			$streak++;
-			$sql = "UPDATE addiction SET streak_achieved = '".$streak."', money_achieved = ".$saved." WHERE id ='".$id."'";
+			$sql = "UPDATE addiction SET 
+			streak_achieved = '".$streak."', 
+			money_achieved = ".$saved.",
+			hours_saved = ".$hours_saved."
+			WHERE id ='".$id."'";
 		}
 	// else user said no
 	}else{

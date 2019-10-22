@@ -32,8 +32,8 @@ if(isset($_SESSION['user_id'])){
 		<form action="inc/register.php" method="post">
 			<h1>Create Account</h1>
 			<div class="social-container">
-				<a href="#" class="social"><img src="images/fbicon.jpg" width="40" height="40"></a>
-				<a href="#" class="social"><img src="images/google.jpg" width="40" height="40"></a>
+				<a href="#" class="social"><img src="img/fbicon.jpg" width="40" height="40"></a>
+				<a href="#" class="social"><img src="img/google.jpg" width="40" height="40"></a>
 			</div>
 			<span>or create an account</span>
 			<input type="text" placeholder="Name" name="regName" />
@@ -46,8 +46,8 @@ if(isset($_SESSION['user_id'])){
 		<form action="inc/login.php" method="post">
 			<h1>Sign in</h1>
 			<div class="social-container">
-				<a href="#" class="social"><img src="images/fbicon.jpg" width="40" height="40"></a>
-				<a href="#" class="social"><img src="images/google.jpg" width="40" height="40"></a>
+				<a href="#" class="social"><img src="img/fbicon.jpg" width="40" height="40"></a>
+				<a href="#" class="social"><img src="img/google.jpg" width="40" height="40"></a>
 			</div>
 			<span>or use your account</span>
 			<input type="text" placeholder="Name" name="logName" />

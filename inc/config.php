@@ -4,7 +4,7 @@ if(!isset($_SESSION)){
 }
 $user_logged_in = false;
 try{
-	$conn = mysqli_connect("localhost", "username", "password", "addiction_manager");
+	$conn = mysqli_connect("localhost", "kayeejay_add_man", "add_man", "kayeejay_addiction_manager");
 } catch(Exception $e) {
 	echo "unable to connect".$e->getMessage();
 	exit;
