@@ -24,7 +24,7 @@ include_once 'inc/config.php';
         <form method="post" action="inc/add_addiction.php">
           <h2>Add Addiction</h2>
           <input type="text" name="addiction" placeholder="Add an addiction">
-          <input type="text" name="money" placeholder="how much you save a day"> //i added this
+          <input type="text" name="money" placeholder="$$ you would spend per day">
           <button type="submit"><img src="img/add1.jpg" alt="add button" height="45px" width="45px"></button>
         </form>
         </div>
